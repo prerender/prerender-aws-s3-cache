@@ -1,0 +1,11 @@
+{
+  "name": "prerender-s3-cache",
+  "version": "1.0.0",
+  "description": "S3 cache for use with Prerender server",
+  "main": "index.js",
+  "author": "Todd Hooper",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "~2.307.0"
+  }
+}
