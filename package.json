@@ -1,5 +1,5 @@
 {
-  "name": "prerender-s3-cache",
+  "name": "prerender-aws-s3-cache",
   "version": "1.0.0",
   "description": "S3 cache for use with Prerender server",
   "main": "index.js",
