@@ -6,7 +6,7 @@ This is a plugin meant to be used with your Prerender server to cache responses 
 Run this from within your Prerender server directory:
 
 ```bash
-$ npm install prerender-s3-cache --save
+$ npm install prerender-aws-s3-cache --save
 ```
 ##### server.js
 ```js
