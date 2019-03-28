@@ -7,12 +7,14 @@ module.exports = {
 			return next();
 		}
 
+		var key = req.prerender.url;
+
 		if (process.env.S3_PREFIX_KEY) {
 			key = process.env.S3_PREFIX_KEY + '/' + key;
 		}
 
 		s3.getObject({
-				Key: req.prerender.url
+				Key: key
 		}, function (err, result) {
 
 			if (!err && result) {
@@ -28,12 +30,14 @@ module.exports = {
 			return next();
 		}
 
+		var key = req.prerender.url;
+		
 		if (process.env.S3_PREFIX_KEY) {
 			key = process.env.S3_PREFIX_KEY + '/' + key;
 		}
 
 		s3.putObject({
-			Key: req.prerender.url,
+			Key: key,
 			ContentType: 'text/html;charset=UTF-8',
 			StorageClass: 'REDUCED_REDUNDANCY',
 			Body: req.prerender.content
