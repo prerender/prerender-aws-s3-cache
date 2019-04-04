@@ -1,4 +1,13 @@
-var s3 = new (require('aws-sdk')).S3({ params: { Bucket: process.env.S3_BUCKET_NAME } });
+var AWS = require('aws-sdk')
+
+var s3_options = {
+	params: { Bucket: process.env.S3_BUCKET_NAME },
+}
+
+if (process.env.S3_ENDPOINT)
+	s3_options.endpoint = new AWS.Endpoint(process.env.S3_ENDPOINT)
+
+var s3 = new AWS.S3(s3_options);
 
 module.exports = {
 
@@ -55,7 +64,6 @@ module.exports = {
 		s3.putObject({
 			Key: key,
 			ContentType: 'text/html;charset=UTF-8',
-			StorageClass: 'REDUCED_REDUNDANCY',
 			Body: req.prerender.content
 		}, function (err, result) {
 
