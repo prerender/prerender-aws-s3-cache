@@ -63,6 +63,13 @@ Allows you to prefix your keys if you want all of your snapshots to live in a sp
 
 default: none
 
+#### S3_CACHE_FRESHNESS
+Allows to set how long a cached copy of the html in s3 is considered fresh before overwriting with a new version. Value should be unix epoch time in milliseconds.
+
+`export S3_CACHE_FRESHNESS=<value>`
+
+default: 604800000 (7 days)
+
 ## License
 
 The MIT License (MIT)
