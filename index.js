@@ -7,14 +7,14 @@ module.exports = {
 			return next();
 		}
 
-		var key = req.prerender.url;
+		var key = req.prerender.url.replace(/\//g, '\\');
 
 		if (process.env.S3_PREFIX_KEY) {
 			key = process.env.S3_PREFIX_KEY + '/' + key;
 		}
 
 		s3.getObject({
-				Key: key
+			Key: key
 		}, function (err, result) {
 
 			if (!err && result) {
@@ -30,8 +30,8 @@ module.exports = {
 			return next();
 		}
 
-		var key = req.prerender.url;
-		
+		var key = req.prerender.url.replace(/\//g, '\\');
+
 		if (process.env.S3_PREFIX_KEY) {
 			key = process.env.S3_PREFIX_KEY + '/' + key;
 		}
